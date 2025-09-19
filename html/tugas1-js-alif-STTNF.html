@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tugas 1 - JavaScript - Alif Surya Pratama</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="bg-light">
+  <div class="container-fluid">
+    <!-- Header Contoh Alif Surya>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold">
+            <i class="fa-solid fa-calculator"></i> Kalkulator Bangun Datar
+          </a>
+        </div>
+      </nav>
+    </header>
+    <!-- Row Card -->
+    <div class="row mt-5">
+      <!-- ini card untuk Persegi Panjang -->
+      <div class="col-md-4 d-flex justify-content-center">
+        <div class="card shadow-sm" style="width: 18rem;">
+          <div class="card-body text-center">
+            <h5 class="card-title">Persegi Panjang</h5>
+            <!-- Ini input Untuk menghitung Persegi Panjang -->
+            <div class="mb-3">
+              <label for="panjang" class="form-label">Panjang</label>
+              <input type="number" class="form-control" id="panjang" placeholder="Masukkan Panjang">
+            </div>
+            <div class="mb-3">
+              <label for="lebar" class="form-label">Lebar</label>
+              <input type="number" class="form-control" id="lebar" placeholder="Masukkan Lebar">
+            </div>
+            <button type="button" class="btn btn-primary" id="btnLuasPP">Luas</button>
+            <button type="button" class="btn btn-warning" id="btnKelPP">Keliling</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bujur Sangkar -->
+      <!-- ini card untuk Bujur Sangkar -->
+      <div class="col-md-4 d-flex justify-content-center">
+        <div class="card shadow-sm" style="width: 18rem;">
+          <div class="card-body text-center">
+            <h5 class="card-title">Bujur Sangkar</h5>
+            <!-- Ini input Untuk menghitung Bujur Sangkar -->
+            <div class="mb-3">
+              <label for="sisi" class="form-label">Sisi</label>
+              <input type="number" class="form-control" id="sisi" placeholder="Masukkan Sisi">
+            </div>
+            <button type="button" class="btn btn-primary" id="btnLuasBS">Luas</button>
+            <button type="button" class="btn btn-warning" id="btnKelBS">Keliling</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Segitiga -->
+      <!-- ini card untuk Bujur Sangkar -->
+      <div class="col-md-4 d-flex justify-content-center">
+        <div class="card shadow-sm" style="width: 18rem;">
+          <div class="card-body text-center">
+            <h5 class="card-title">Segitiga</h5>
+            <!-- Ini input Untuk menghitung Segitiga -->
+            <div class="mb-3">
+                <label for="alas" class="form-label">Alas</label>
+                <input type="number" class="form-control" id="alas" placeholder="Masukkan Alas">
+            </div>
+            <div class="mb-3">
+                <label for="tinggi" class="form-label">Tinggi</label>
+                <input type="number" class="form-control" id="tinggi" placeholder="Masukkan Tinggi">
+            </div>
+            <button type="button" class="btn btn-primary" id="btnLuasSG">Luas</button>
+            <button type="button" class="btn btn-warning" id="btnKelSG">Keliling</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Persegi Panjang
+    //deklarasi panjang dan lebar
+    document.getElementById("btnLuasPP").onclick = () => {
+      let p = document.getElementById("panjang").value;
+      let l = document.getElementById("lebar").value;
+      //rumus luas persegi panjang
+      let luas = p * l;
+      //menampilkan hasil luas di popup
+      alert("Luas Persegi Panjang: " + luas + " cm²");
+    };
+    document.getElementById("btnKelPP").onclick = () => {
+      let p = document.getElementById("panjang").value;
+      let l = document.getElementById("lebar").value;
+      //rumus keliling persegi panjang
+      let keliling = 2 * (parseInt(p) + parseInt(l));
+      //menampilkan keliling persegi panjang di popup
+      alert("Keliling Persegi Panjang: " + keliling + " cm");
+    };
+
+    // Bujur Sangkar
+    //deklarasi sisi bujur sangkar
+    document.getElementById("btnLuasBS").onclick = () => {
+      let s = document.getElementById("sisi").value;
+      //rumus menghitung luas bujur sangkar
+      let luas = s * s;
+      //menampilkan hasil luas bujur sangkar dipopup
+      alert("Luas Bujur Sangkar: " + luas + " cm²");
+    };
+    document.getElementById("btnKelBS").onclick = () => {
+      let s = document.getElementById("sisi").value;
+      //rumus menghitung keliling bujur sangkar
+      let keliling = 4 * s;
+      //menampilkan hasil keliling bujur sangkar dipopup
+      alert("Keliling Bujur Sangkar: " + keliling + " cm");
+    };
+
+    // Segitiga
+    //deklarasi alas dan tinggi
+    document.getElementById("btnLuasSG").onclick = () => {
+      let a = document.getElementById("alas").value;
+      let t = document.getElementById("tinggi").value;
+      //rumus menghitung luas segitigas
+      let luas = 0.5 * a * t;
+      //menampilkan hasil luas segitiga dipopup
+      alert("Luas Segitiga: " + luas + " cm²");
+    };
+    document.getElementById("btnKelSG").onclick = () => {
+      let a = document.getElementById("alas").value;
+      //rumus keliling segitiga
+      let keliling = 3 * a;
+      //menampilkan hasil keliling segitiga di popup
+      alert("Keliling Segitiga: " + keliling + " cm");
+    };
+  </script>
+
+  <!-- Bootstrap Javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
