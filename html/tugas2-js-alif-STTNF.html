@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tugas 2 - JavaScript - Alif Surya Pratama</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!--tabel border hitam tebal -->
+  <style>
+    table, th, td {
+      border: 3px solid black !important;
+    }
+    table {
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container-fluid">
+    <!-- Header -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold mx-auto">
+            <i class="fa-solid fa-id-card"></i> BIODATA DIRI
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Tabel Biodata -->
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <table class="table">
+          <thead class="table-warning">
+            <tr>
+              <th>Nama Pegawai</th>
+              <th>Umur</th>
+              <th>Jabatan</th>
+              <th>Status</th>
+              <th>Gaji Pokok</th>
+              <th>Tunjangan Jabatan</th>
+              <th>BPJS</th>
+              <th>Tunjangan Keluarga</th>
+            </tr>
+          </thead>
+          <tbody id="datadodi">
+            <!-- <tr>diisi pake JavaScript</tr> -->
+          </tbody>
+          <tfoot class="table-warning">
+            <tr>
+              <td>Total Gaji</td>
+              <td colspan="7" id="total-gaji"></td>
+            </tr>
+        </tfoot>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Ini adalah Javascript buat input isi di tbody -->
+  <script>
+    // Ini merupakan data pegawai
+    let nama = "Dodi Prayodi";
+    let umur = 25;
+    let jabatan = "Manajer";
+    let status = "Menikah";
+
+    // Menentukan gaji poko pak dodi
+    let gaji;
+    if (jabatan === "Manajer") {
+      gaji = 15000000;
+    } else if (jabatan === "Asisten Manajer") {
+      gaji = 10000000;
+    } else {
+      gaji = 5000000;
+    }
+
+    // Menghitung tunjangan & potongan
+    let tunjanganJabatan = 0.15 * gaji;
+    let bpjs = 0.10 * gaji;
+    let tunjanganKeluarga = (status === "Menikah") ? 0.20 * gaji : 0;
+
+    // Total gaji
+    let totalGaji = gaji + tunjanganJabatan + tunjanganKeluarga - bpjs;
+
+    // Isi data ke tabel tbody
+    document.getElementById("datadodi").innerHTML = `
+      <tr>
+        <td>${nama}</td>
+        <td>${umur} Tahun</td>
+        <td>${jabatan}</td>
+        <td>${status}</td>
+        <td>${gaji}</td>
+        <td>${tunjanganJabatan}</td>
+        <td>${bpjs}</td>
+        <td>${tunjanganKeluarga}</td>
+      </tr>
+    `;
+
+    // Total gaji ada di tfoot
+    document.getElementById("total-gaji").innerText = totalGaji;
+
+  </script>
+
+  <!-- Bootstrap Javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
