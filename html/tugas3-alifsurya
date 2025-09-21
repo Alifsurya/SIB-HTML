@@ -1,0 +1,46 @@
+// Array produk
+let produkToko = [
+  { id: 1, nama: "Laptop", harga: 7000000, stok: 5 },
+  { id: 2, nama: "Mouse", harga: 200000, stok: 10 },
+  { id: 3, nama: "Keyboard", harga: 350000, stok: 7 },
+];
+
+// Fungsi tambah produk
+const addProduk = (nama, harga, stok) => {
+  const idBaru = produkToko.length > 0 ? produkToko[produkToko.length - 1].id + 1 : 1;
+  produkToko.push({ id: idBaru, nama, harga, stok });
+};
+
+// Fungsi hapus produk
+const deleteProduk = id => {
+  const index = produkToko.findIndex(p => p.id === id);
+  if (index !== -1) {
+    produkToko.splice(index, 1);
+  }
+};
+
+// Fungsi menampilkan produk
+const viewProduk = () => 
+  produkToko.map(p => `${p.id}. ${p.nama} - Rp${p.harga} (Stok: ${p.stok})`).join("\n");
+
+// Penerapan fungsi tambah hapus dan lihat
+console.log("Daftar Produk Awal:");
+console.log(viewProduk());
+
+addProduk("Monitor", 1500000, 4);
+addProduk("Power Suplly", 1500000, 2);
+addProduk("Cooler", 500000, 10);
+addProduk("Printer", 1200000, 11);
+
+console.log("\nSetelah tambah produk:");
+console.log(viewProduk());
+
+console.log("\nSetelah tambah produk:");
+console.log(viewProduk());
+
+deleteProduk(2);
+deleteProduk(3);
+deleteProduk(4);
+console.log("\nSetelah hapus produk dengan ID 2:");
+console.log(viewProduk());
+
