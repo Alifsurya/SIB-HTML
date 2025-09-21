@@ -35,12 +35,10 @@ addProduk("Printer", 1200000, 11);
 console.log("\nSetelah tambah produk:");
 console.log(viewProduk());
 
-console.log("\nSetelah tambah produk:");
-console.log(viewProduk());
-
 deleteProduk(2);
 deleteProduk(3);
 deleteProduk(4);
-console.log("\nSetelah hapus produk dengan ID 2:");
+console.log("\nSetelah hapus produk dengan ID 2,3 dan 4:");
 console.log(viewProduk());
+
 
